@@ -9,7 +9,7 @@ async function challenge(req, res) {
 
         const last = memoryModel.getLast(domain);
         const mins = memoryModel.minutesSince(last);
-        const message = await aiChatService.generateChallenge(domain, mins, persona);
+        const message = await aiChatService.generateChallenge(domain, persona);
 
         res.json({message});
     } catch (err) {
