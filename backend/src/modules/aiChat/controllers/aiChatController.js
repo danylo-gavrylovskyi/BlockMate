@@ -8,7 +8,6 @@ async function challenge(req, res) {
         if (!domain) return res.status(400).json({error: 'app query required'});
 
         const last = memoryModel.getLast(domain);
-        const mins = memoryModel.minutesSince(last);
         const message = await aiChatService.generateChallenge(domain, persona);
 
         res.json({message});
