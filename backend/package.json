@@ -1,0 +1,15 @@
+{
+    "name": "blockmate-backend",
+    "version": "0.1.0",
+    "description": "Backend for BlockMate (Hackathon POC)",
+    "main": "server.js",
+    "scripts": {
+        "start": "node src/server.js"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.0.0",
+        "express": "^4.18.2",
+        "openai": "^4.7.0"
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "BlockMate",
+    "version": "0.1.0",
+    "description": "Blocks distracting sites and makes you negotiate with AI partner.",
+    "permissions": ["declarativeNetRequest", "storage", "activeTab", "alarms"],
+    "host_permissions": ["<all_urls>"],
+    "background": {
+        "service_worker": "src/background/service-worker.js"
+    },
+    "action": {
+        "default_popup": "src/popup/popup.html",
+        "default_title": "BlockMate"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": ["src/blocked/blocked.html"],
+            "matches": ["<all_urls>"]
+        }
+    ]
+}
