@@ -1,21 +1,18 @@
-# BlockMate - Sassy AI Productivity Blocker 🔥
-
-> A hackathon-ready productivity blocker where you negotiate with AI personalities to unlock blocked websites.
+# BlockMate - AI Productivity Blocker 🔥
 
 ## Overview
 
-BlockMate is a Chrome extension that blocks time-wasting websites and forces you to negotiate with AI personas (Stoic, Bro, Zen) to gain temporary access. Track your progress with real-time stats: weak moments (attempts) and time reclaimed (saved minutes).
+BlockMate is a Chrome extension that blocks time-wasting websites and forces you to negotiate with AI personas (Strict, Bro, Zen) to gain temporary access. Track your progress with real-time stats: weak moments (attempts) and time reclaimed (saved minutes).
 
-**Status**: ✅ Ready for Hackathon Submission
 **Design**: 🎨 Premium Dark Theme with Coral Accents
-**Backend**: 🚀 Node.js + Express + OpenAI GPT-4o
+**Backend**: 🚀 Node.js + Express + OpenAI GPT-4.1-nano
 **Frontend**: 💻 Chrome Extension Manifest V3
 
 ## Key Features
 
 ### 🤖 Three AI Personas
 
--   **Stoic Mode** 🛡️ - Strict, disciplined, philosophical
+-   **Strict Mode** 🛡️ - Strict, disciplined, philosophical
 -   **Bro Mode** 🧢 - Casual, relatable, encouraging
 -   **Zen Mode** 🧘 - Calm, mindful, balanced
 
@@ -32,7 +29,7 @@ Each persona has unique system prompts for varied, engaging responses.
 2. Extension shows personalized AI challenge
 3. User provides excuse/reason
 4. AI evaluates response
-5. Approved → 30-minute temporary unlock
+5. Approved → Temporary unlock
 6. Denied → Stats update, try again later
 
 ### 🎨 Premium Design
@@ -104,7 +101,7 @@ Get an AI challenge to unlock a site
 
 ```json
 {
-  "persona": "stoic" | "bro" | "zen"
+  "persona": "strict" | "bro" | "zen"
 }
 ```
 
@@ -116,12 +113,12 @@ Submit your excuse for AI evaluation
 
 ```json
 {
-  "persona": "stoic" | "bro" | "zen",
+  "persona": "strict" | "bro" | "zen",
   "reason": "I need to check my email..."
 }
 ```
 
-Returns `{ approved: true/false, response: "..." }`
+Returns `{ approved: true/false, reply: "...", duration: number }`
 
 ### GET /api/stats
 
@@ -141,36 +138,7 @@ Fetch current stats
 
 ```env
 OPENAI_API_KEY=sk-your-key-here
-NODE_ENV=development
 PORT=3000
-```
-
-### Blocked Sites (extension)
-
-Edit `extension/src/shared/constants.js`:
-
-```javascript
-export const BLOCKED_DOMAINS = [
-    'google.com',
-    'reddit.com',
-    'twitter.com',
-    // Add more...
-];
-```
-
-### AI Personas
-
-Edit `backend/src/modules/aiChat/models/personaModel.js`:
-
-```javascript
-{
-    stoic: {
-        emoji: '🛡️',
-        name: 'Strict Mode',
-        systemPrompt: 'You are an AI coach...'
-    },
-    // Customize responses here
-}
 ```
 
 ## Design Highlights
